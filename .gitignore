@@ -1,0 +1,50 @@
+# Logs locais, inclusive de infraestrutura, QA e servidores
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Infraestrutura local de QA preparada pelo controlador
+.qa/
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.vercel
+
+# Segredos não fazem parte do repositório, inclusive em instalações futuras
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Material interno e evidências volumosas permanecem somente nesta instalação
+/BRIEF-HERMES.md
+/references/
+/docs/*
+!/docs/PUBLICACAO-HUMANA.md
+!/docs/SPLINE-INTEGRACAO.md
+!/docs/RESULTADO-SPLINE.md
+!/docs/SOLICITACAO-SPLINE.json
+!/docs/PESQUISA-SPLINE-21ST.md
+!/docs/test-spline-preview.mjs
+!/docs/spline-preview-results.json
+
+# Official binary materialized during build, not mirrored in Git
+/public/scenes/runtime-1.12.98/process.wasm

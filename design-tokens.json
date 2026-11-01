@@ -1,0 +1,27 @@
+{
+  "direction": "Galeria editorial clara, capturas integrais e estudo shader azul-escuro na coluna independente; robô Spline pendente de provisão local",
+  "colors": {
+    "paper": "#FFFFFF",
+    "ink": "#202329",
+    "muted": "#535C69",
+    "accent": "#254FCA",
+    "surface": "#F5F6F8",
+    "line": "#CDD5DF"
+  },
+  "typography": {
+    "family": "Arial, Helvetica, sans-serif",
+    "reason": "Grotesca de sistema, sem download externo; títulos compactos e texto de leitura aberto.",
+    "scaleRem": [0.8125, 0.9375, 1, 1.125, 1.5, 2, 3, 5, 8.5],
+    "bodyLineHeight": 1.65,
+    "displayLineHeight": 1,
+    "displayTracking": "-0.06em",
+    "weights": [400, 500, 600, 700]
+  },
+  "layout": { "maxWidth": "1160px", "mobileGutter": "24px", "desktopGutter": "60px", "readingWidth": "58ch" },
+  "spacingRem": [0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4, 6, 8],
+  "radii": { "image": "28px", "control": "24px", "tag": "4px", "card": "28px", "stage": "28px" },
+  "decorativeShaderColors": ["#ff5005", "#dbba95", "#d0bce1"],
+  "sculpture": { "color": "#2373DD", "geometry": "Same approved closed folded band; 256 rings and 48 sides, 12288 vertices and no boundary edges", "lighting": "local lights, procedural RoomEnvironment/PMREM and real PCFSoft ground shadow; no external HDR", "composition": "Approved independent column preserved; controls/help below silhouette, no overlap with editorial", "quality": { "maxDpr": 2, "limitedMaxDpr": 1.5, "shadowSizes": [1024, 2048], "antialias": true }, "interaction": { "yawLimitRadians": 0.6, "pitchLimitRadians": 0.28, "dampingRate": 10, "keyboard": "arrows, R/Home/Escape reset", "touch": "explicit opt-in, horizontal drag, native vertical scroll" } },
+  "motion": { "interactionMs": 150, "revealMs": 600, "mouseRevealMs": 250, "diagonalTravelPx": [24, 44], "automatic": "visible local shaders only, active tab and user motion enabled; intro Perlin, MyDay Perlin and proposal ShaderGradient", "reducedMotion": "no continuous animation, transitions or spatial movement; static gradient fallbacks", "density": 1 },
+  "splinePreview": { "background": "#101B32", "shaderForeground": "#356BA6", "text": "#F5F8FF", "muted": "#D2DEF2", "status": "blocked: missing local Spline scene and packages", "radius": "28px" }
+}

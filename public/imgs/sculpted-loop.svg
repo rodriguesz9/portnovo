@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 420" fill="none">
+  <defs>
+    <linearGradient id="volume" x1="127" y1="92" x2="332" y2="324" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9bcaff"/><stop offset=".22" stop-color="#4e99f3"/><stop offset=".57" stop-color="#2373dd"/><stop offset="1" stop-color="#16499e"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="142" y1="74" x2="345" y2="283" gradientUnits="userSpaceOnUse"><stop stop-color="#d5e9ff"/><stop offset="1" stop-color="#4389e0"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-200%" width="160%" height="500%"><feGaussianBlur stdDeviation="10"/></filter>
+  </defs>
+  <ellipse cx="244" cy="357" rx="112" ry="10" fill="#354b70" opacity=".18" filter="url(#shadow)"/>
+  <path d="M130 282 C75 223 98 128 160 99 C236 63 340 104 354 175 C371 251 300 322 218 321 C179 321 151 306 130 282Z" stroke="#16499e" stroke-width="66" stroke-linejoin="round"/>
+  <path d="M130 275 C75 216 98 121 160 92 C236 56 340 97 354 168 C371 244 300 315 218 314 C179 314 151 299 130 275Z" stroke="url(#volume)" stroke-width="62" stroke-linejoin="round"/>
+  <path d="M113 223 C98 173 123 119 169 103 C220 84 285 104 320 135" stroke="url(#edge)" stroke-width="7" stroke-linecap="round" opacity=".85"/>
+  <path d="M344 223 C317 274 274 302 224 302" stroke="#123f91" stroke-width="8" stroke-linecap="round" opacity=".35"/>
+</svg>

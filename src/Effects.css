@@ -1,0 +1,79 @@
+.motion-control { background: transparent; color: var(--muted); border: 1px solid var(--line); border-radius: 24px; padding: 8px 14px; min-height: 44px; cursor: pointer; font-size: .8125rem; }
+.scroll-reveal { min-width: 0; opacity: .3; transform: translateY(20px); transition: opacity .6s, transform .6s; }
+.scroll-reveal.entered, .scroll-reveal.still, .scroll-reveal:focus-within { opacity: 1; transform: none; }
+.minimal-card { padding: 16px; border: 1px solid #e6e9ee; border-radius: 28px; background: #f8f9fb; }
+.perspective { perspective: 1100px; min-width: 0; }
+.image-tilt { transform-style: preserve-3d; transition: transform .18s ease-out; }
+.image-tilt:hover { will-change: transform; }
+.image-tilt figure { transform: translateZ(8px); }
+.screen-button { position: relative; width: 100%; display: block; border: 1px solid #d4dae3; padding: 6px; border-radius: 14px; background: white; color: var(--ink); cursor: zoom-in; overflow: hidden; }
+.browser-edge { display: flex; align-items: center; gap: 5px; padding: 6px 5px 10px; background: white; font-size: 10px; }
+.browser-edge i { width: 5px; height: 5px; border-radius: 50%; background: #b9c3d2; }
+.browser-edge > span { margin-left: auto; }
+.capture-peek { position: absolute; right: 12px; bottom: 12px; padding: 9px 12px; background: #ffffffed; backdrop-filter: blur(12px); border: 1px solid #fff; border-radius: 20px; display: inline-flex; align-items: center; gap: 12px; font-size: 12px; opacity: 0; transform: translateY(10px); transition: transform .25s, opacity .25s; }
+.screen-button:hover .capture-peek, .screen-button:focus-visible .capture-peek { opacity: 1; transform: none; }
+.media-dialog { width: min(1200px, calc(100% - 24px)); max-height: calc(100dvh - 24px); margin: auto; padding: 24px; border: 0; border-radius: 24px; color: var(--ink); background: white; overflow: auto; }
+.media-dialog::backdrop { background: #151f32b8; backdrop-filter: blur(8px); }
+.media-dialog img { width: 100%; height: auto; display: block; margin-top: 24px; border-radius: 8px; }
+.media-heading { display: flex; justify-content: space-between; gap: 16px; align-items: start; }
+.media-heading p { font-size: .875rem; color: var(--muted); max-width: 65ch; margin-top: 8px; }
+.sculpture-stage { width: 100%; min-width: 0; }
+.sculpture-viewport { position: relative; width: 100%; aspect-ratio: 1.1; max-height: 400px; border-radius: 16px; touch-action: pan-y; }
+.sculpture-viewport:has(canvas) { cursor: grab; }
+.sculpture-viewport[data-dragging] { cursor: grabbing; }
+.sculpture-canvas canvas, .sculpture-canvas > div { touch-action: pan-y !important; }
+.sculpture-projection { pointer-events: none; }
+.sculpture-footer { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-top: 8px; min-height: 48px; }
+.sculpture-footer p { flex: 1 1 175px; font-size: .75rem; line-height: 1.5; color: var(--muted); }
+.sculpture-action { min-height: 44px; border: 1px solid var(--line); border-radius: 24px; padding: 8px 12px; color: var(--ink); background: white; font-size: .75rem; cursor: pointer; }
+.sculpture-projection, .sculpture-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.sculpture-stage:has(canvas) .sculpture-projection { opacity: 0; }
+.intro-copy { padding-left: 0; }
+.intro-heading { padding-bottom: 0; }
+.service-section { padding-top: 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.service-copy > p { color: var(--muted); margin-block: 20px 24px; max-width: 48ch; }
+.service-copy h2 { font-size: clamp(2rem,4vw,3rem); line-height: 1.1; }
+.service-stage { position: relative; isolation: isolate; border: 1px solid #dde3eb; border-radius: 28px; overflow: hidden; padding: 24px; display: flex; align-items: center; justify-content: center; background: #edf2f9; }
+.liquid-surface { position: absolute; inset: 0; z-index: -1; background: linear-gradient(125deg,#b8d5f4,#e4dcee 65%,#d6b59c); pointer-events: none; opacity: .42; }
+.glass-price { width: 100%; background: #fffffff0; backdrop-filter: blur(20px); border: 1px solid white; border-radius: 20px; padding: 32px; box-shadow: inset 0 0 0 1px #e7ebf1; }
+.glass-price h3 { font-size: 1.125rem; }
+.glass-price p { margin-top: 14px; font-size: .9375rem; }
+.glass-price .price { font-size: clamp(2.6rem,4vw,3.4rem); letter-spacing: -.05em; line-height: 1.1; margin-block: 24px; }
+.price span { display: block; font-size: .8125rem; letter-spacing: 0; margin-top: 8px; color: var(--muted); }
+.glass-price > p:nth-last-child(2) { border-top: 1px solid var(--line); padding-top: 20px; }
+.commercial-note { color: var(--muted); font-size: .8125rem !important; }
+@supports (animation-timeline: view()) {
+  @media (min-width: 760px) and (prefers-reduced-motion: no-preference) {
+    .visual-trimm { overflow: clip; }
+    .visual-trimm .screen-button { animation: diagonal linear both; animation-timeline: view(); animation-range: entry 0% exit 100%; }
+    .visual-trimm .screen-button:focus-visible { animation: none; transform: none; }
+  }
+}
+@keyframes diagonal { from { transform: translate(-12px,18px); } to { transform: translate(12px,-18px); } }
+.motion-stopped *, .motion-stopped *::before, .motion-stopped *::after { animation: none !important; transition: none !important; }
+.motion-stopped .image-tilt { transform: none !important; }
+.motion-stopped .capture-peek { opacity: 1; transform: none; }
+@media (max-width: 1000px) and (min-width: 760px) {
+  .projects-grid > :is(:first-child, :nth-child(4)) article { grid-template-columns: 1fr; }
+  .projects-grid > :is(:first-child, :nth-child(4)) .project-copy { padding: 8px 16px 16px; }
+  .intro { gap: 28px; }
+}
+@media (max-width: 759px) {
+  .intro-heading { padding-bottom: 0; }
+  .intro-copy { padding-left: 0; }
+  .sculpture-viewport { height: 230px; aspect-ratio: auto; }
+  .service-section { grid-template-columns: 1fr; gap: 24px; padding-top: 56px; }
+  .service-stage { padding: 16px; }
+  .glass-price { padding: 22px; }
+  .capture-peek { opacity: 1; transform: none; font-size: 10px; right: 8px; bottom: 8px; padding: 5px 8px; }
+  .minimal-card { padding: 12px; }
+  .media-dialog { padding: 18px; }
+}
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .capture-peek { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; }
+  .scroll-reveal { opacity: 1; transform: none; }
+  .image-tilt { transform: none !important; }
+}

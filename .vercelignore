@@ -1,0 +1,16 @@
+# Não enviar infraestrutura, material interno ou evidências de revisão
+.git
+.qa
+node_modules
+dist
+dist-ssr
+.vercel
+.env
+.env.*
+*.pem
+*.key
+*.log
+BRIEF-HERMES.md
+references
+docs
+# vendor/ NÃO é ignorado: package-lock depende dos tarballs locais.

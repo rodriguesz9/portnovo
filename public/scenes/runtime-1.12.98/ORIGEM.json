@@ -1,0 +1,7 @@
+{
+  "url": "https://unpkg.com/@splinetool/modelling-wasm@1.12.98/build/process.wasm",
+  "bytes": 504317,
+  "sha256": "421e4f92df38c0c7776fe6cb8f591ce965a6af03cc170a5430dcf9ad32ff02a7",
+  "purpose": "Exact modelling dependency observed in runtime L3; local wasmPath used",
+  "license": "Official Spline modelling-wasm resource; not assumed MIT."
+}

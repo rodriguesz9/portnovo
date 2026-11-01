@@ -1,0 +1,14 @@
+{
+  "scene_url": "https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode",
+  "sha256": "4e31d7ef0b54fd02e2dd373f18f89c32003ce6d9220a996e09c94efa4c7c31f9",
+  "bytes": 1349622,
+  "component_reference": "https://preview.21st.dev/@serafimcloud/components/splite",
+  "component_license": "MIT declared by21st; snippet only, not scene or runtime",
+  "scene_source": "https://app.spline.design/community/file/615b9422-9985-43f6-8593-d7d7bc3b0be1",
+  "scene_title": "NEXBOT - robot character concept",
+  "community_license_reference": "https://spline.design/terms",
+  "community_default": "Standard Commercial License permits personal/commercial remix; not MIT",
+  "authorization": "Local integration and testing authorized by user; self-hosted .splinecode per official documentation reported by controller. No remote verification performed by worker.",
+  "runtime": "@splinetool/runtime 1.12.98; package has no license field or LICENSE file; do not presume MIT",
+  "distribution_status": "HUMAN_REVIEW_REQUIRED before distributing scene, runtime or internal assets. No upload or production authorization."
+}
