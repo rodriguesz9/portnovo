@@ -10,12 +10,12 @@
 // circles, coordinate ticks and a pointer reticle finish the sheet.
 //
 // Storyboard, from the moment it scrolls into view: the picture rasters in from
-// the top and breaks into pixels where it meets the red; the wordmark resolves
-// from 8-cell blocks to 4, to 2, to 1; the flourish writes through it; the
+// the top and breaks into pixels where it meets the red; the wordmark reveals
+// only its original lit cells with alpha; the flourish writes through it; the
 // captions wipe in with a stagger. The pointer carries a dotted reticle with its
-// grid coordinate, scatters the letter cells it passes and clears the dither to
+// grid coordinate and clears the dither to
 // show more of the painting beneath. A click runs a scanline down the sheet that
-// re-rasters whatever it crosses.
+// dims only existing wordmark cells as it crosses, never filling their gaps.
 //
 // One file, React only. Three small canvases (dither, wordmark, grain), one
 // SVG for the marks and the flourish, real anchors for the links. Every rule in
@@ -482,7 +482,6 @@ export default function WildHuntFooter({
     let cell = 8
     let cols = 0
     let cells: number[] = []
-    let blocks: { [level: number]: number[] } = {}
     let box = { x: 0, y: 0, w: 0, h: 0 }
     let px = -1e5
     let py = -1e5
@@ -541,7 +540,6 @@ export default function WildHuntFooter({
       const composed = whfCompose(o.wordmark, glyphs, o.tracking)
       cols = Math.max(1, composed.cols)
       cells = composed.cells
-      blocks = { 8: whfBlocks(cells, 8), 4: whfBlocks(cells, 4), 2: whfBlocks(cells, 2) }
       const frac = Math.min(0.8, Math.max(0.3, narrow ? Math.min(o.imageHeight, 0.5) : o.imageHeight))
       bandH = Math.round(h * frac)
       const footH = footRef.current ? footRef.current.offsetHeight : 0
@@ -708,59 +706,31 @@ export default function WildHuntFooter({
     const drawWord = (now: number, t: number) => {
       const o = opts.current
       const m = 4 * cell
-      wctx.setTransform(dpr, 0, 0, dpr, 0, 0)
+      // Clear backing-store pixels independently of DPR or prior canvas state.
+      wctx.setTransform(1, 0, 0, 1, 0, 0)
+      wctx.globalAlpha = 1
+      wctx.globalCompositeOperation = "source-over"
       wctx.clearRect(0, 0, wcv.width, wcv.height)
+      wctx.setTransform(dpr, 0, 0, dpr, 0, 0)
       if (t < 230) return
       wctx.fillStyle = o.colors.ink
-      const level = t < 430 ? 8 : t < 630 ? 4 : t < 830 ? 2 : 1
-      if (level > 1) {
-        const b = blocks[level]
-        for (let i = 0; i < b.length; i += 2) wctx.fillRect(m + b[i] * level * cell, m + b[i + 1] * level * cell, level * cell, level * cell)
-        return
-      }
       const sweep = now - sweepAt
-      const sweepY = sweep < 760 ? (sweep / 760) * h - box.y : -1e4
-      const bucket = Math.floor(now / 70)
-      const R = Math.max(70, Math.min(160, w * 0.1))
-      const hot = heat > 0.001 && !reduced
-      const lx = px - box.x
-      const ly = py - box.y
-      const blink = t < 1080 ? ((1080 - t) / 250) * 0.4 : 0
+      const sweeping = !reduced && sweep >= 0 && sweep < 760
+      const sweepY = (sweep / 760) * h - box.y
+      const reveal = reduced ? 1 : Math.min(1, Math.max(0, (t - 230) / 500))
+      // Every painted rectangle is exactly one original lit glyph cell.
+      // Neither intro, pointer nor click may fill counters/gaps or move ink.
       for (let i = 0; i < cells.length; i += 2) {
         const cx = cells[i]
         const cy = cells[i + 1]
         const yp = (cy + 0.5) * cell
-        if (sweepY > -1e3 && yp < sweepY && yp > sweepY - 90) continue
-        let dx = 0
-        let dy = 0
-        if (hot) {
-          const ddx = (cx + 0.5) * cell - lx
-          const ddy = yp - ly
-          const d = Math.sqrt(ddx * ddx + ddy * ddy)
-          if (d < R) {
-            const k = heat * (1 - d / R)
-            const r1 = whfHash(i, bucket)
-            const r2 = whfHash(i + 7919, bucket)
-            if (r1 < 0.1 * k) continue
-            dx = Math.round((r1 * 2 - 1) * 2.4 * k)
-            dy = Math.round((r2 * 2 - 1) * 1.6 * k)
-          }
-        }
-        if (blink > 0 && whfHash(i, bucket) < blink) continue
-        if (dx || dy) {
-          wctx.globalAlpha = 0.22
-          wctx.fillRect(m + cx * cell, m + cy * cell, cell, cell)
-          wctx.globalAlpha = 1
-        }
-        wctx.fillRect(m + (cx + dx) * cell, m + (cy + dy) * cell, cell, cell)
+        const alpha = smooth(Math.min(1, Math.max(0, reveal * 1.3 - (cx / cols) * 0.3)))
+        const distance = Math.abs(yp - sweepY)
+        const sweepAlpha = sweeping ? 1 - 0.35 * Math.max(0, 1 - distance / 90) : 1
+        wctx.globalAlpha = alpha * sweepAlpha
+        wctx.fillRect(m + cx * cell, m + cy * cell, cell, cell)
       }
-      if (sweepY > -1e3) {
-        const b = blocks[4]
-        for (let i = 0; i < b.length; i += 2) {
-          const yp = (b[i + 1] + 0.5) * 4 * cell
-          if (yp < sweepY && yp > sweepY - 90) wctx.fillRect(m + b[i] * 4 * cell, m + b[i + 1] * 4 * cell, 4 * cell, 4 * cell)
-        }
-      }
+      wctx.globalAlpha = 1
     }
 
     const draw = (now: number) => {
