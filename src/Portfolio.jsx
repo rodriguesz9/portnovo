@@ -1,11 +1,23 @@
 import { useRef, useState } from 'react'
-import { ArrowDown, ArrowUpRight, Check, Copy, Github, X } from 'lucide-react'
+import { ArrowDown, ArrowUpRight, Copy, Github, X } from 'lucide-react'
 import './Portfolio.css'
-import { Reveal, MinimalCard, Tilt, Service } from './Effects'
+import { Reveal, MinimalCard, Service } from './Effects'
+import GlassFolder from './components/ui/glass-folder-cards'
+import WildHuntFooter from './components/ui/wild-hunt-footer'
 import RobotPreview from './components/ui/robot-preview'
-import ProjectNoise from './ProjectNoise'
+import SectionNavigation from '@/components/ui/section-navigation'
+import LiquidMetalButton from './components/ui/liquid-metal-button'
+import Timeline2 from './components/ui/timeline2'
+import AboutRobert from './components/ui/about-robert'
+import ProjectGallery from './components/ui/project-gallery'
+import { DitherTrail, MessageReveal } from './components/ui/dither-experience'
+import capturesManifest from '../public/imgs/projects/manifest.json'
 import { useMotion } from './useMotion'
 import './Effects.css'
+import './Dark.css'
+import ViewportThreads from './components/ui/viewport-threads'
+import { Perspective, ScrollWords, SessionIntro } from './components/ui/scroll-story'
+import './ScrollThreads.css'
 
 const projects = [
   {
@@ -22,8 +34,9 @@ const projects = [
     status: 'Organização financeira', image: '/imgs/img1.png', width: 1366, height: 633,
     alt: 'Captura original da interface do projeto Finanças Já', caption: 'Captura do projeto',
     description: 'Organização financeira pessoal: uma forma de reunir gastos e orçamentos em uma interface.',
-    details: 'Projeto pessoal voltado à organização financeira. A imagem é uma captura fornecida do projeto, não uma demonstração interativa. O repositório é privado e não está disponível para consulta pública.',
+    details: 'Capturas da página pública de demonstração. Não comprovam dados financeiros reais nem as alegações de marketing. O repositório continua privado e não está disponível para consulta pública.',
     tags: ['Finanças pessoais', 'Interface web'], private: true,
+    link: 'https://financasja.free.nf/', linkLabel: 'Ver página pública',
   },
   {
     id: 'trimm', name: 'Trimm Company / Fivonn', category: 'Trabalho em equipe',
@@ -37,7 +50,7 @@ const projects = [
   {
     id: 'myday', name: 'MyDay', category: 'Projeto pessoal', status: 'Organização de tarefas',
     description: 'Um projeto em JavaScript para organizar tarefas e dar mais clareza ao que fazer no dia.',
-    details: 'Projeto pessoal de tarefas em JavaScript, com repositório público. A composição acima é ilustrativa, criada para este portfólio; não é uma captura nem representa funcionalidades verificadas do aplicativo.',
+    details: 'Projeto pessoal de tarefas em JavaScript, com repositório público. Capturas de execução local dos componentes originais, com dados de demonstração. O diálogo foi aberto sem salvar uma tarefa.',
     tags: ['JavaScript', 'Tarefas'],
     link: 'https://github.com/rodriguesz9/MyDay', linkLabel: 'Ver repositório',
   },
@@ -49,36 +62,24 @@ function ExternalLink({ href, children, className = '' }) {
   </a>
 }
 
-function ProjectVisual({ project, stopped }) {
-  const [failed, setFailed] = useState(false)
-  const mediaRef = useRef(null)
-  return <figure>
-    <div className={`project-visual visual-${project.id}`}>
-      {project.id === 'myday' && <ProjectNoise stopped={stopped} />}
-      {failed ? <p className="image-fallback">Imagem indisponível. O contexto do projeto está abaixo.</p>
-        : project.image ? <button className="screen-button" aria-label={`Ampliar captura de ${project.name}`} onClick={() => mediaRef.current.showModal()}><span className="browser-edge" aria-hidden="true"><i /><i /><i /><span>{project.name}</span></span><img src={project.image} width={project.width} height={project.height} alt={project.alt} loading="lazy" decoding="async" onError={() => setFailed(true)} /><span className="capture-peek" aria-hidden="true">Ver a interface em detalhe<ArrowUpRight size={18} /></span></button>
-          : <div className="myday-composition" aria-hidden="true">
-            <div className="myday-top"><span>MyDay</span><span>Seu dia, mais claro.</span></div>
-            <div className="myday-title">Uma coisa<br />de cada vez.</div>
-            <div className="task-line"><span className="task-check"><Check size={13} /></span><span>Organizar as ideias</span></div>
-            <div className="task-line"><span className="task-circle" /><span>Dar o próximo passo</span></div>
-          </div>}
-    </div>
-    <figcaption>{project.caption || 'Composição ilustrativa, não é captura do aplicativo'}</figcaption>
-    {project.image && <dialog ref={mediaRef} className="media-dialog" aria-labelledby={`media-title-${project.id}`} onKeyDown={event => { if (event.key === 'Tab') { event.preventDefault(); event.currentTarget.querySelector('button').focus() } }}>
-      <div className="media-heading"><div><h2 id={`media-title-${project.id}`}>{project.name}</h2><p>{project.caption}. Imagem estática, não é o aplicativo em execução.</p></div><button autoFocus type="button" className="icon-button" aria-label={`Fechar captura de ${project.name}`} onClick={() => mediaRef.current.close()}><X size={22} /></button></div>
-      <img src={project.image} width={project.width} height={project.height} alt={project.alt} />
-    </dialog>}
-  </figure>
-}
-
 function Project({ project, stopped }) {
+  const [expanded, setExpanded] = useState(false)
+  const contentRef = useRef(null)
+  const captures = capturesManifest.projects[project.id] || []
   return <MinimalCard aria-labelledby={`title-${project.id}`}>
-    <Tilt stopped={stopped}><ProjectVisual project={project} stopped={stopped} /></Tilt>
+    <div className="project-folder"><GlassFolder label={project.name} tone="dark" meta="Explorar capturas" image={captures[0]?.src} art="none" action="none" appear={false} width={240} stopped={stopped}
+      files={captures.map(capture => ({ name: capture.label, meta: 'Captura real', image: capture.src }))}
+      onOpenChange={open => { if (open) setExpanded(true) }}
+      onFileSelect={() => { setExpanded(true); requestAnimationFrame(() => contentRef.current?.focus()) }} />
+    </div>
     <div className="project-copy">
     <div className="project-category"><span>{project.category}</span><span>{project.status}</span></div>
     <h3 id={`title-${project.id}`}>{project.name}</h3>
     <p className="project-description">{project.description}</p>
+    <div hidden={!expanded} ref={contentRef} tabIndex={-1} className="folder-content" aria-label={`Conteúdo de ${project.name}`}>
+    <ProjectGallery name={project.name} captures={captures} />
+    <button className="external-link folder-close" onClick={() => setExpanded(false)}>Recolher conteúdo</button>
+    </div>
     <ul className="tags" aria-label={`Tecnologias e contexto de ${project.name}`}>
       {project.tags.map(tag => <li key={tag}>{tag}</li>)}
     </ul>
@@ -87,7 +88,7 @@ function Project({ project, stopped }) {
       <p>{project.details}</p>
     </details>
     <div className="project-link">
-      {project.link ? <ExternalLink href={project.link}>{project.linkLabel}</ExternalLink> : <span className="private-note">Repositório privado</span>}
+      {project.link && <ExternalLink href={project.link}>{project.linkLabel}</ExternalLink>}{project.private && <span className="private-note">Repositório privado</span>}
     </div>
     </div>
   </MinimalCard>
@@ -169,17 +170,18 @@ export default function Portfolio() {
     dialogRef.current.querySelector('#ideia').focus()
   }
   return <div className={stopped ? 'portfolio motion-stopped' : 'portfolio'}>
+    <SessionIntro stopped={stopped} />
     <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
     <header className="site-header container">
       <a href="#inicio" className="identity" aria-label="Robert Rodrigues, início">Robert Rodrigues<span className="identity-dot" aria-hidden="true">.</span></a>
-      <nav aria-label="Principal"><a href="#projetos">Projetos</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a></nav>
+      <SectionNavigation />
       <button className="motion-control" aria-pressed={paused} onClick={() => setPaused(!paused)}>{paused ? 'Retomar efeitos' : 'Pausar efeitos'}</button>
       {reduced && <span className="sr-only">Movimento reduzido ativo.</span>}
     </header>
     <main id="conteudo" tabIndex={-1}>
       <section id="inicio" className="intro container" aria-labelledby="intro-title">
         <div className="intro-editorial"><div className="intro-heading"><p className="intro-role">Desenvolvimento web</p><h1 id="intro-title">Robert<br />Rodrigues.</h1></div>
-        <div className="intro-copy"><p>Gosto de transformar ideias em interfaces que fazem sentido.</p><p className="muted">Projetos pessoais, trabalho em equipe e aprendizado na prática. Um pouco do que estou construindo está aqui.</p><a href="#projetos" className="button primary">Conhecer projetos<ArrowDown size={18} aria-hidden="true" /></a></div>
+        <div className="intro-copy"><p>Gosto de transformar ideias em interfaces que fazem sentido.</p><p className="muted">Projetos pessoais, trabalho em equipe e aprendizado na prática. Um pouco do que estou construindo está aqui.</p><LiquidMetalButton href="#projetos" stopped={stopped}>Conhecer projetos<ArrowDown size={18} aria-hidden="true" /></LiquidMetalButton></div>
         </div><RobotPreview stopped={stopped} />
       </section>
       <section id="projetos" className="projects-section container" aria-labelledby="projects-title">
@@ -187,17 +189,30 @@ export default function Portfolio() {
         <div className="projects-grid">{projects.map(project => <Reveal key={project.id} stopped={stopped}><Project project={project} stopped={stopped} /></Reveal>)}</div>
       </section>
 
-      <section id="sobre" className="about-section" aria-labelledby="about-title"><div className="container about-grid">
-        <h2 id="about-title">Construir.<br />Aprender.<br />Refinar.</h2>
-        <div className="about-copy"><p className="large-copy">Sou Robert Rodrigues. Meu interesse por desenvolvimento passa por entender uma ideia e encontrar uma forma clara de colocá-la na tela.</p><p>Meu percurso inclui estudos de Informática na Funec Riacho, projetos pessoais e experiências em equipe. Uso esses espaços para experimentar, resolver problemas e melhorar o que construo.</p><div className="tools"><h3>Ferramentas neste percurso</h3><p>JavaScript, React, Astro, TypeScript e CSS, presentes neste portfólio e nos projetos apresentados.</p></div><ExternalLink href="https://github.com/rodriguesz9">Explorar meu GitHub</ExternalLink></div>
-      </div></section>
+      <div id="sobre">
+      <AboutRobert stopped={stopped} />
+      <Timeline2 stopped={stopped} />
+      <Perspective stopped={stopped} />
+      <MessageReveal stopped={stopped} />
       <Service stopped={stopped} />
+      </div>
       <section id="contato" className="contact-section container" aria-labelledby="contact-title">
-        <div><h2 id="contact-title">O próximo projeto<br />começa com uma ideia.</h2><p>Conheça meu trabalho no GitHub ou organize o que você tem em mente em um resumo para copiar.</p></div>
-        <div className="contact-actions"><button className="button primary" onClick={openBrief}>Preparar resumo</button><ExternalLink href="https://github.com/rodriguesz9"><Github size={18} aria-hidden="true" />Encontrar no GitHub</ExternalLink><p className="contact-note">O resumo é local. Nenhuma mensagem é enviada.</p></div>
+        <ViewportThreads paused={stopped} />
+        <div className="contact-copy"><h2 id="contact-title"><ScrollWords stopped={stopped} text="O próximo projeto começa com uma ideia." /></h2><p>Uma ideia, uma dúvida ou um projeto em mente? Vamos conversar.</p></div>
+        <div className="contact-actions"><a className="button primary" href="mailto:robertrodriguesdecastro@gmail.com">Enviar e-mail<ArrowUpRight size={18} aria-hidden="true" /></a><a className="button secondary" href="https://wa.me/5531994090721" target="_blank" rel="noopener noreferrer">Conversar no WhatsApp<ArrowUpRight size={18} aria-hidden="true" /></a><p className="contact-note">(31) 99409-0721 · Você decide quando iniciar o contato.</p><button className="external-link" onClick={openBrief}>Preparar resumo local</button><ExternalLink href="https://github.com/rodriguesz9"><Github size={18} aria-hidden="true" />Encontrar no GitHub</ExternalLink></div>
       </section>
     </main>
-    <footer className="site-footer container"><span>Robert Rodrigues</span><span>Feito com React e atenção aos detalhes.</span><a href="#inicio">Voltar ao início<ArrowUpRight size={16} aria-hidden="true" /></a></footer>
+    <WildHuntFooter stopped={stopped} wordmark="Robert" preset="ink" palette={{ background: '#050506', ink: '#eceef2' }} fontFamily="system-ui, -apple-system, sans-serif" height="max(900px, 100svh)" sigils={false}
+      tagline="Robert Rodrigues · desenvolvimento web" sideNote="Construir · aprender · refinar"
+      legal="Robert Rodrigues · Feito com React"
+      colophon="Peter Nicolai Arbo, Åsgårdsreien, 1872. Domínio público declarado pelo autor do componente; pintura e recorte da demo oficial. Wild Hunt Footer: Kedhareswer Naidu, MIT. Proveniência e licença em /licenses/quatro/."
+      columns={[
+        { title: 'Projetos', links: [{ label: 'Explorar projetos', href: '#projetos' }] },
+        { title: 'Percurso', links: [{ label: 'Sobre Robert', href: '#sobre' }] },
+        { title: 'Código', links: [{ label: 'GitHub', href: 'https://github.com/rodriguesz9' }] },
+        { title: 'Uma ideia', links: [{ label: 'Preparar resumo', href: '#contato' }] },
+      ]} />
+    <DitherTrail stopped={stopped} />
     <BriefDialog dialogRef={dialogRef} />
   </div>
 }

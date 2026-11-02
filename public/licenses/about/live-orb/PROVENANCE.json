@@ -1,0 +1,14 @@
+{
+  "url": "https://23rd.dev/r/live-orb.json",
+  "finalUrl": "https://www.23rd.dev/r/live-orb.json",
+  "sha256": "c5b38c78d8913cd0663a75555a11359b44d75d38f894b7b3ef2612cf69e29de1",
+  "license": "MIT declared on author 21st page",
+  "files": [
+    {
+      "path": "registry/live-orb/live-orb.tsx",
+      "bytes": 22444
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": []
+}

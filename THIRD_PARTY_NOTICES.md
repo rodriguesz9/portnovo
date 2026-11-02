@@ -1,5 +1,73 @@
 # Avisos de terceiros
 
+## Threads — React Bits, fonte fornecida pelo usuário
+
+David Haz / React Bits. Origem, hashes e blob oficial em public/licenses/threads/PROVENANCE.json. Código GLSL WebGL2 nativo fornecido localmente; shaders preservados. Adaptação em src/components/ui/Threads.jsx: seção Contato, elegibilidade compartilhada, inicialização lazy, DPR 1.25, limite 1.2 milhão de pixels/1920px, 30fps, eventos só da seção, descarte ao pausar/sair/hidden/reduced/saveData e fallback CSS. Não é MIT puro. Texto integral fornecido:
+
+MIT + Commons Clause License Condition v1.0
+
+Copyright (c) 2026 David Haz
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, and distribute the Software **as part of an application, website, or product**, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+## Commons Clause Restriction
+
+You may use this Software, including for any commercial purpose, **so long as you do not sell, sublicense, or redistribute the components themselves-whether alone, in a bundle, or as a ported version.**
+
+The same restriction covers the React Bits tools (Background Studio, Texture Lab, Shape Magic, Center Stage, Sound Lab and any tools added later) and the sounds in the sound library. **You may not sell, sublicense, or redistribute the tools or the sounds themselves, or offer the tools or a substantially similar copy of them as a hosted service-whether alone, in a bundle, or as a ported version.**
+
+What you make with the tools is yours to use. You can use exported code, images, videos, and audio files in any personal or commercial application, website, or product, including paid ones. **You may not sell or redistribute the exports on their own, either individually or as the product itself, such as a sound, texture, background, or template pack.**
+
+## No Warranty
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+## Introdução e scroll autorais autorizados
+
+SessionIntro, ScrollWords, Perspective e a nova máscara MessageReveal são implementações próprias autorizadas, com React/framer-motion já existentes. Skiper8 é Pro: nenhum código pago obtido, instalado ou declarado original. Apenas ideia de palavras sequenciais e saída curva. Referências Instagram DbrE_blM7XZ e Db6gJljsXaQ ficam para etapa posterior; vídeos não incorporados nem analisados integralmente nesta entrega. Sem trackers, Search Console, APIs de contato ou publicação.
+
+## Sobre — três originais adaptados de fontes locais autorizadas
+
+EncryptedText: Manu Arora / Aceternity, fonte pública do painel Manual em https://ui.aceternity.com/components/encrypted-text; MIT declarada pelo autor no catálogo 21st. O registry retornou 403 ao controlador; não houve recuperação adicional, login ou contorno de acesso. Adaptação em src/components/ui/encrypted-text.tsx preserva geração aleatória com espaços, revelação progressiva por tempo e requestAnimationFrame; usa framer-motion existente no lugar de motion/react, texto assistivo estável, reserva de layout e final legível nos estados inativos.
+
+WavyBlock / WavyBlockItem: Youcef Benmessabih (YoucefBnm), Systaliko-UI, MIT, commit ed82dae1ed03605ceea1415f92a45399eb76b111; publicado no 21st como wavy-text-block. Origem exata consta de public/licenses/about/wavy-block/PROVENANCE.json. src/components/ui/wavy-block.tsx mantém contexto, progresso de scroll, offsets senoidais/cossenoidais e springs; leitura DOM movida para layout effect, API on('change'), amplitude local discreta e estado estático acessível. Licença integral original incluída, sem alterar a referência.
+
+LiveOrb: radiumcoders, registro público https://23rd.dev/r/live-orb.json ligado pelo autor no 21st; MIT declarada na página do autor. Adaptação em src/components/ui/live-orb.tsx preserva o shader GLSL original, materiais, olhos, blink, autogaze, restauração de contexto e engine WebGL. Acrescenta elegibilidade real/paused com cancelamento de RAF, saveData, coarse/mobile estático, DPR máximo 1.5, fallback CSS e limpeza inclusive em falha de inicialização. Os três orbs são decorativos; tema explicitamente escuro. Nenhuma dependência nova.
+
+Proveniências originais e licença fornecida: public/licenses/about. Não foram fornecidos cabeçalhos de copyright ou arquivos LICENSE integrais para EncryptedText/LiveOrb; a declaração MIT vem da proveniência e não foi apresentada como validação jurídica independente. O texto padrão MIT acompanha a declaração com autoria atribuída sem inventar ano. Revisão humana dos direitos antes de publicação permanece necessária.
+
+Histórico: gughigug/liquid-glass-navbar e anark17r/data-rain não foram obtidos nem integrados. Estado atual: RESOLVIDO POR ALTERNATIVA AUTORIZADA explicitamente em /workspace/referencias/portfolio-about/profile/USER-UPDATE.md. SectionNavigation e DataRain são duas implementações PRÓPRIAS inspiradas nas referências visuais autorizadas, não Nimbus, gughigug ou código anark17r. Navbar usa CSS glass e medição de links reais; Data Rain usa Canvas2D local com 64 partículas e influência do ponteiro. Não se transfere a licença dos originais ausentes a essas versões próprias. Nenhuma chamada 21st, instalação, alteração de CSP, consulta externa ou produção nesta etapa. Relatório: docs/RELATORIO-SOBRE-ORBS.md.
+
+## Revisão escura — JolyUI, 8bitcn e efeitos próprios
+
+Liquid Metal Button: Johuniq / JolyUI, MIT, commit a889dac1d8b18bc70eac69c0245ca65579381293. Fonte pública oficial provisionada localmente pelo controlador, ligada pelo catálogo 21st. Adaptação real em src/components/ui/liquid-metal-button.tsx preserva camadas cromo/preto e liquidMetalFragmentShader via Paper ShaderMount 0.0.81 (Apache-2.0, avisos abaixo). A adaptação usa dispose(), não destroy(), setSpeed(), foco visível, rótulos em português, largura de conteúdo, fallback CSS e duas instâncias no máximo. Licença e proveniência integrais em public/licenses/jolyui.
+
+Timeline2: TheOrcDev / 8bitcn-ui, MIT, commit 56066c038165223b8505a344309279ae27757a81. Adaptação em src/components/ui/timeline2.tsx mantém checkpoints, títulos, descrições e linha horizontal; progressão cumulativa e reversível por scroll, sem captura de wheel, são implementação local. Licença e proveniência em public/licenses/8bitcn. Press Start 2P foi fornecida localmente sob SIL OFL; fonte e OFL.txt em public/fonts/local, carregada apenas na timeline. Nenhum @import de Google Fonts.
+
+Dither Trail e MessageReveal: implementações próprias locais inspiradas na screenshot autorizada. Não são código heyquincy nem integração original 21st. Um único canvas global decorativo, cursor nativo preservado. A galeria de capturas e o controle de diálogos também são adaptações locais.
+
+Galeria atual: public/imgs/projects/manifest.json registra origens, legendas e limitações por arquivo. MyDay agora usa capturas reais de execução local com dados demo, não a ilustração histórica. Bootstrap de captura recompilado em .qa com JSX automático; componentes originais intactos. Trimm foi capturado sem recursos externos bloqueados; alegações das páginas de demonstração não foram validadas como funcionalidades em produção. Finanças Já: imagens públicas fornecidas pelo controlador, repositório continua privado. Seninha: snapshot local, proposta em revisão. As menções a MyDay ilustrativo abaixo são históricas, não descrevem a galeria atual.
+
+O registro histórico de fontes originais ausentes foi preservado acima; as alternativas autorais autorizadas já estão implementadas. Nenhuma cota 21st foi usada nesta revisão; não houve instalação, atualização de stack ou publicação.
+
+## Glass Folder Cards e Wild Hunt Footer — fontes originais 21st
+
+Kedhareswer Naidu (@kedhareswer), MIT declarada nas páginas oficiais. Fontes integrais fornecidas pelo controlador via MCP oficial autenticado, preservadas em /workspace/referencias/21st/portfolio-quatro-componentes. Adaptações em src/components/ui/glass-folder-cards.tsx e wild-hunt-footer.tsx. Licença integral e proveniências distribuídas em public/licenses/quatro. React é a única dependência dos originais; nenhum instalador executado. Pastas usam capturas locais e ações reais dos quatro projetos, sem adicionar arquivos fictícios. Footer preserva Bayer ordered-dither, camadas, rasterização da fonte system, retículo e click-scan; identidade e paleta foram adaptadas.
+
+Pintura: Peter Nicolai Arbo, Åsgårdsreien (1872), Nasjonalmuseet, Oslo, domínio público via Wikimedia Commons conforme declaração da fonte original. Pintura e cutout locais extraídos da demo oficial pelo controlador; recorte fornecido com a demo, não se presume licença individual distinta. Hashes e origem em REVIEW.json na referência. Arquivos em public/21st/wild-hunt. A revisão humana dos direitos antes de publicar continua necessária. A capa MyDay é SVG local ilustrativo, não screenshot.
+
 ## Revisão atual — Spline Scene e shader de abertura
 
 Referência: https://21st.dev/@serafimcloud/components/splite , Spline Scene, autor serafimcloud. MIT é a licença declarada do snippet 21st, conforme proveniência fornecida pelo controlador; NÃO se estende à cena, ao runtime nem ao WASM. Card (padrão shadcn), Spotlight (atribuído pelo usuário a ibelick) e wrapper foram fornecidos pelo usuário. Adaptações locais em src/components/ui incluem listeners estáveis, MotionValue, pausa/reduced-motion, ref de h3, português e allowlist local. A proveniência é public/scenes/ORIGEM.json; não houve consulta remota pelo worker nesta rodada. Não se inventa texto de copyright ausente para o snippet.

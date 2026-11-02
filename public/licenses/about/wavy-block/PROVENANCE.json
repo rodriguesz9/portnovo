@@ -1,0 +1,17 @@
+{
+  "url": "https://raw.githubusercontent.com/YoucefBnm/Systaliko-UI/ed82dae1ed03605ceea1415f92a45399eb76b111/public/r/wavy-block.json",
+  "fetched": "2026-11-01T22:29:43.762493+00:00",
+  "sha256": "021925f19f8e469f03b9e8af0d3c4806ce0a2e26b744294ac629b871993d46cd",
+  "license": "MIT declared by author",
+  "files": [
+    {
+      "path": "index.tsx",
+      "bytes": 5835,
+      "sha256": "85a4bc49c7ecb9e20f518bf36b67ba067408e53c3f6f0faf95eef088c03cefe2"
+    }
+  ],
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": []
+}

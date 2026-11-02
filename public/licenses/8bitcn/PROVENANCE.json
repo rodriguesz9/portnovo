@@ -1,0 +1,31 @@
+{
+  "repo": "TheOrcDev/8bitcn-ui",
+  "commit": "56066c038165223b8505a344309279ae27757a81",
+  "files": [
+    {
+      "path": "license.md",
+      "url": "https://raw.githubusercontent.com/TheOrcDev/8bitcn-ui/56066c038165223b8505a344309279ae27757a81/license.md",
+      "bytes": 1063,
+      "sha256": "1f7c401e999345dc159be2023cb7587d72e044f3e736b378dff8828a7060c31e"
+    },
+    {
+      "path": "components/ui/8bit/blocks/timeline2.tsx",
+      "url": "https://raw.githubusercontent.com/TheOrcDev/8bitcn-ui/56066c038165223b8505a344309279ae27757a81/components/ui/8bit/blocks/timeline2.tsx",
+      "bytes": 2519,
+      "sha256": "8f0cfae9d26b91f45d8d95eae8c490cb01823cae90817415a7ca15ca3b57fbfb"
+    },
+    {
+      "path": "components/ui/8bit/styles/retro.css",
+      "url": "https://raw.githubusercontent.com/TheOrcDev/8bitcn-ui/56066c038165223b8505a344309279ae27757a81/components/ui/8bit/styles/retro.css",
+      "bytes": 306,
+      "sha256": "0e96902b74184e53ac5fbb806b8ef077bdd781357b3e47e83628a8c66842c010"
+    },
+    {
+      "path": "content/docs/blocks/timeline/timeline2.mdx",
+      "url": "https://raw.githubusercontent.com/TheOrcDev/8bitcn-ui/56066c038165223b8505a344309279ae27757a81/content/docs/blocks/timeline/timeline2.mdx",
+      "bytes": 604,
+      "sha256": "8dd503649c0969cda959dc86797df882e9e7fcc32de5e82a03a937f2fca0510f"
+    }
+  ],
+  "usage": "Somente referência local; fontes públicas. Capturas de execução local devem ser rotuladas e usar dados de demonstração."
+}

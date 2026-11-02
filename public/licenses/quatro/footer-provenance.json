@@ -1,0 +1,16 @@
+{
+  "url": "https://21st.dev/@kedhareswer/components/wild-hunt-footer",
+  "registry": "https://21st.dev/r/kedhareswer/wild-hunt-footer",
+  "retrieved_at": "2026-11-01T12:31:31.978833+00:00",
+  "retrieval": "official authenticated MCP, verified free tier",
+  "demo_id": 43022,
+  "code_sha256": "bd4b8053b406c81b169fefa168e80bae582e3caef2e5b715e7724a49c1649170",
+  "license": "MIT declared on public component page; verify any bundled notice and independent assets",
+  "quota_after": {
+    "tier": "free",
+    "remaining": 1,
+    "perDay": 2,
+    "resetAt": "2026-11-02T00:00:00.000Z",
+    "upgradeUrl": "https://21st.dev/pricing"
+  }
+}

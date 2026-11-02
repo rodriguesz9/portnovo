@@ -44,7 +44,7 @@ dist-ssr
 !/docs/SOLICITACAO-SPLINE.json
 !/docs/PESQUISA-SPLINE-21ST.md
 !/docs/test-spline-preview.mjs
+!/docs/test-spline-real.mjs
 !/docs/spline-preview-results.json
 
-# Official binary materialized during build, not mirrored in Git
 /public/scenes/runtime-1.12.98/process.wasm

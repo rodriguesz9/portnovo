@@ -1,0 +1,96 @@
+{
+  "generated": "2026-11-01T21:51:02.949Z",
+  "projects": {
+    "trimm": [
+      {
+        "src": "/imgs/projects/trimm/inicio.jpg",
+        "label": "Página inicial",
+        "caption": "Execução local · dados de demonstração",
+        "origin": "/workspace/referencias/portfolio-dark/TrimmCompany-/trimm-project/dist",
+        "sourceCommit": "0f48aa1c99b86df56b4b3d9f678d2415f28f18b3",
+        "width": 1280,
+        "height": 800
+      },
+      {
+        "src": "/imgs/projects/trimm/detalhe.jpg",
+        "label": "Planos demonstrativos",
+        "caption": "Execução local · dados de demonstração",
+        "origin": "/workspace/referencias/portfolio-dark/TrimmCompany-/trimm-project/dist",
+        "sourceCommit": "0f48aa1c99b86df56b4b3d9f678d2415f28f18b3",
+        "width": 1280,
+        "height": 800
+      }
+    ],
+    "myday": [
+      {
+        "src": "/imgs/projects/myday/inicio.jpg",
+        "label": "Quadro de tarefas",
+        "caption": "Execução local · dados de demonstração",
+        "origin": "/workspace/portfolio/.qa/myday-fixed",
+        "sourceCommit": "70c0c21c3043afd1113aa1b362a207e76cb42415",
+        "width": 1280,
+        "height": 800
+      },
+      {
+        "src": "/imgs/projects/myday/detalhe.jpg",
+        "label": "Nova tarefa",
+        "caption": "Execução local · dados de demonstração",
+        "origin": "/workspace/portfolio/.qa/myday-fixed",
+        "sourceCommit": "70c0c21c3043afd1113aa1b362a207e76cb42415",
+        "width": 1280,
+        "height": 800
+      }
+    ],
+    "seninha": [
+      {
+        "src": "/imgs/projects/seninha/inicio.jpg",
+        "label": "Apresentação do salão",
+        "caption": "Preview local · proposta em revisão",
+        "origin": "/workspace/referencias/portfolio-integrado/salao-seninha-site",
+        "sourceCommit": null,
+        "width": 1280,
+        "height": 800
+      },
+      {
+        "src": "/imgs/projects/seninha/detalhe.jpg",
+        "label": "Serviços",
+        "caption": "Preview local · proposta em revisão",
+        "origin": "/workspace/referencias/portfolio-integrado/salao-seninha-site",
+        "sourceCommit": null,
+        "width": 1280,
+        "height": 800
+      }
+    ],
+    "financas": [
+      {
+        "src": "/imgs/projects/financas/inicio.jpg",
+        "label": "Página pública",
+        "caption": "Página pública · demonstração",
+        "origin": "https://financasja.free.nf/",
+        "capturedBy": "Controlador humano; material local fornecido",
+        "limitations": "Não comprova dados financeiros reais nem alegações de marketing."
+      },
+      {
+        "src": "/imgs/projects/financas/funcionalidades.jpg",
+        "label": "Apresentação de funcionalidades",
+        "caption": "Página pública · demonstração",
+        "origin": "https://financasja.free.nf/",
+        "capturedBy": "Controlador humano; material local fornecido",
+        "limitations": "Não comprova dados financeiros reais nem alegações de marketing."
+      }
+    ]
+  },
+  "limitations": [
+    "Trimm: fontes Google e imagens Unsplash externas bloqueadas. Sem substituições inventadas.",
+    "MyDay: bootstrap local aprovado; componentes originais, diálogo aberto sem salvar.",
+    "Capturas históricas preservadas em public/imgs; não são o aplicativo interativo."
+  ],
+  "blockedExternal": [
+    "https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap",
+    "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap",
+    "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&q=80&w=1000",
+    "https://grainy-gradients.vercel.app/noise.svg",
+    "https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap",
+    "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap"
+  ]
+}

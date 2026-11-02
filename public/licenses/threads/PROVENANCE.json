@@ -1,0 +1,16 @@
+{
+  "source": "User-provided React Bits Threads JavaScript+CSS attachment",
+  "attachment_sha256": "568d61dcdf7d796ef91133de48401fa48a2856f15d2b1bb13264eb2fc2c2474b",
+  "prepared": "2026-11-01T23:11:11.671721+00:00",
+  "files": {
+    "Threads.css": "6541550c905e39ff1dc856d85e4783f8b5ab6dfa73c5bf63b58618379bbf5229",
+    "Threads.jsx": "90176900776bbd02660248eb9095811d4dc9ce6c8a9ab54dfac5701d74a2ed44"
+  },
+  "dependencies": [
+    "react"
+  ],
+  "license": "MIT + Commons Clause",
+  "license_url": "https://github.com/DavidHDev/react-bits/blob/main/LICENSE.md",
+  "license_blob": "4069ce9d0ef1a712c93d6ce48ade5d5667e0f5ee",
+  "preloader": "Own implementation explicitly authorized by user; no Skiper Pro code obtained"
+}

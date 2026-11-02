@@ -42,7 +42,7 @@ export function Tilt({ children, stopped }) {
 class ShaderBoundary extends Component {
   state = { failed: false }
   static getDerivedStateFromError() { return { failed: true } }
-  render() { return this.state.failed ? <span className="shader-message">Visual estático — renderer indisponível.</span> : this.props.children }
+  render() { return this.state.failed ? <span className="shader-message">Apresentação estática. Todas as informações continuam disponíveis.</span> : this.props.children }
 }
 
 export function Service({ stopped }) {

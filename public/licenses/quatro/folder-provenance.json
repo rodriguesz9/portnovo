@@ -1,0 +1,16 @@
+{
+  "url": "https://21st.dev/@kedhareswer/components/glass-folder-cards",
+  "registry": "https://21st.dev/r/kedhareswer/glass-folder-cards",
+  "retrieved_at": "2026-11-01T12:31:34.321981+00:00",
+  "retrieval": "official authenticated MCP, verified free tier",
+  "demo_id": 37625,
+  "code_sha256": "8d85035fb0f68c5365cb49e136f76a17e1662124d7ac7fc26ee32015cf4b5364",
+  "license": "MIT declared on public component page; verify any bundled notice and independent assets",
+  "quota_after": {
+    "tier": "free",
+    "remaining": 0,
+    "perDay": 2,
+    "resetAt": "2026-11-02T00:00:00.000Z",
+    "upgradeUrl": "https://21st.dev/pricing"
+  }
+}

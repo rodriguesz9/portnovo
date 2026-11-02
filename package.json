@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/provision-spline.mjs && vite build",
+    "build": "node scripts/provision-spline.mjs && SITE_MODE=preview vite build",
+    "build:production": "node scripts/provision-spline.mjs && SITE_MODE=production SITE_URL=https://robertrodrigues.vercel.app vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },

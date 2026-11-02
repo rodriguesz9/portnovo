@@ -1,7 +1,7 @@
 .motion-control { background: transparent; color: var(--muted); border: 1px solid var(--line); border-radius: 24px; padding: 8px 14px; min-height: 44px; cursor: pointer; font-size: .8125rem; }
 .scroll-reveal { min-width: 0; opacity: .3; transform: translateY(20px); transition: opacity .6s, transform .6s; }
 .scroll-reveal.entered, .scroll-reveal.still, .scroll-reveal:focus-within { opacity: 1; transform: none; }
-.minimal-card { padding: 16px; border: 1px solid #e6e9ee; border-radius: 28px; background: #f8f9fb; }
+.minimal-card { padding: 16px; border: 1px solid #e6e6e8; border-radius: 28px; background: var(--surface-secondary); }
 .perspective { perspective: 1100px; min-width: 0; }
 .image-tilt { transform-style: preserve-3d; transition: transform .18s ease-out; }
 .image-tilt:hover { will-change: transform; }
@@ -35,21 +35,14 @@
 .service-copy h2 { font-size: clamp(2rem,4vw,3rem); line-height: 1.1; }
 .service-stage { position: relative; isolation: isolate; border: 1px solid #dde3eb; border-radius: 28px; overflow: hidden; padding: 24px; display: flex; align-items: center; justify-content: center; background: #edf2f9; }
 .liquid-surface { position: absolute; inset: 0; z-index: -1; background: linear-gradient(125deg,#b8d5f4,#e4dcee 65%,#d6b59c); pointer-events: none; opacity: .42; }
-.glass-price { width: 100%; background: #fffffff0; backdrop-filter: blur(20px); border: 1px solid white; border-radius: 20px; padding: 32px; box-shadow: inset 0 0 0 1px #e7ebf1; }
+.glass-price { width: 100%; background: #fffffff0; backdrop-filter: blur(20px); border: 1px solid white; border-radius: 28px; padding: 32px; box-shadow: inset 0 0 0 1px #e7ebf1; }
 .glass-price h3 { font-size: 1.125rem; }
 .glass-price p { margin-top: 14px; font-size: .9375rem; }
 .glass-price .price { font-size: clamp(2.6rem,4vw,3.4rem); letter-spacing: -.05em; line-height: 1.1; margin-block: 24px; }
 .price span { display: block; font-size: .8125rem; letter-spacing: 0; margin-top: 8px; color: var(--muted); }
 .glass-price > p:nth-last-child(2) { border-top: 1px solid var(--line); padding-top: 20px; }
 .commercial-note { color: var(--muted); font-size: .8125rem !important; }
-@supports (animation-timeline: view()) {
-  @media (min-width: 760px) and (prefers-reduced-motion: no-preference) {
-    .visual-trimm { overflow: clip; }
-    .visual-trimm .screen-button { animation: diagonal linear both; animation-timeline: view(); animation-range: entry 0% exit 100%; }
-    .visual-trimm .screen-button:focus-visible { animation: none; transform: none; }
-  }
-}
-@keyframes diagonal { from { transform: translate(-12px,18px); } to { transform: translate(12px,-18px); } }
+
 .motion-stopped *, .motion-stopped *::before, .motion-stopped *::after { animation: none !important; transition: none !important; }
 .motion-stopped .image-tilt { transform: none !important; }
 .motion-stopped .capture-peek { opacity: 1; transform: none; }

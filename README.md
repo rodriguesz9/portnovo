@@ -17,3 +17,12 @@ O build obtém process.wasm da URL oficial fixada e confere tamanho/SHA-256 do m
 Instalação limpa, TypeScript, lint e build passaram. QA consolidada: 12 grupos aprovados e uma reprovação do critério estrito de zero violações CSP. A ocorrência corresponde ao probe vazio `new Function('')` do runtime, bloqueado pela CSP e tratado com fallback; o robô renderiza. A proteção foi mantida, sem unsafe-eval. Drag não é prometido: a cena oferece exploração pelo ponteiro. Sem medição em celular/GPU físico.
 
 Deploy automático por Git está desativado em vercel.json. Envio de fontes não autoriza publicação do site.
+
+
+## Atualização de portfólio — novembro de 2026
+
+Tema escuro, projetos com capturas reais, rodapé Wild Hunt corrigido, 19 ícones de tecnologias, favicon RR próprio, Threads e interações com movimento reduzido. Desenvolvimento por Hermes Agent e revisão pelo controlador.
+
+O build padrão é uma prévia não indexável. Produção futura exige a configuração explícita documentada no código, com SITE_URL=https://robertrodrigues.vercel.app. O comando de produção apenas gera arquivos locais; não publica. Vercel git.deploymentEnabled permanece false. Search Console e Analytics não foram conectados. SEO não garante posicionamento.
+
+O conteúdo principal React ainda depende de JavaScript; há uma versão informativa noscript, sem alegação de SSR/prerender. Os testes locais de novos efeitos isolaram a cena Spline. O probe vazio de eval conhecido do runtime continua bloqueado por CSP; não foi usado unsafe-eval. As licenças e origens estão em THIRD_PARTY_NOTICES.md e public/licenses. O WASM oficial continua provisionado pelo script existente com verificação de hash, sem espelhamento no Git.

@@ -48,7 +48,7 @@ export function SplineScene({ scene, className, fallback = <p role="status">Cena
       </Suspense>
     </SceneBoundary> : <div className="spline-fallback">
       {fallback}
-      <p role="status">{failed ? 'Cena 3D indisponível. Nenhum robô substituto está sendo exibido.' : saveData ? 'Economia de dados ativa. Cena 3D não carregada.' : !enabled ? 'Movimento pausado. Cena 3D não carregada.' : 'Cena 3D suspensa fora da área visível.'}</p>
+      <p role="status">{failed ? 'Não foi possível mostrar o robô. Você pode tentar novamente ou conhecer os projetos abaixo.' : saveData ? 'Economia de dados ativa. Conheça os projetos abaixo sem carregar o 3D.' : !enabled ? 'Movimento pausado. Os projetos e as ações continuam disponíveis.' : 'O robô aparece quando esta área está em exibição.'}</p>
       {failed && <button className="spline-action" type="button" onClick={() => { setFailed(''); setState('idle') }}>Tentar carregar novamente</button>}
     </div>}
   </div>

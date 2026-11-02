@@ -1,0 +1,13 @@
+{
+  "url": "https://ui.aceternity.com/components/encrypted-text",
+  "method": "Manual tab, public UI code. Official registry returned403; no login/paywall bypass.",
+  "license": "MIT declared on21st author listing",
+  "sha256": "b06ed138224ddc34719fa2c88a170fd5d4c3837edf68d212f33b156560bf65c6",
+  "bytes": 4532,
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "@/lib/utils"
+  ]
+}
